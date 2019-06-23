@@ -6,7 +6,8 @@ Toolkit Animation
 ---------------*/
 #toolkit-ani {
     position: relative;
-    margin: 0;
+    margin-top: 12vh;
+    margin-bottom: auto;
 }
 .back-img, .mid-img, .front-img {
     position: absolute;
@@ -23,19 +24,16 @@ Toolkit Animation
 		transform: translatey(0px);
 	}
 }
-#toolkit-ani:hover  .mid-img{
+.mid-img {
 	overflow: hidden;
 	transform: translatey(0px);
 	animation: float 2s ease-in-out infinite;
 }
-	
 </style>
     
 <div id="toolkit-ani">
-	<a href="#">
-	<img class="back-img" src="images/toolkit-back.png" width="100px">
-	<img class="mid-img" src="images/toolkit-middle.png" width="100px">
-	<img class="front-img" src="images/toolkit-front.png" width="100px">
-	</a>
+    <img class="back-img" src="images/toolkit-back.png" width="100px">
+    <img class="mid-img" src="images/toolkit-middle.png" width="100px">
+    <img class="front-img" src="images/toolkit-front.png" width="100px">
 </div>
 </html>
