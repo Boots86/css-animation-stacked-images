@@ -6,16 +6,13 @@ Toolkit Animation
 ---------------*/
 #toolkit-ani {
     position: relative;
-    margin-top: 12vh;
-    margin-bottom: auto;
+    margin: 0;
 }
 .back-img, .mid-img, .front-img {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
+    left: 35%;
+    width: 30%;
 }
-
 @keyframes float {
 	0% {
 		transform: translatey(0px);
@@ -27,11 +24,12 @@ Toolkit Animation
 		transform: translatey(0px);
 	}
 }
-.mid-img {
+#toolkit-ani:hover  .mid-img{
 	overflow: hidden;
 	transform: translatey(0px);
 	animation: float 2s ease-in-out infinite;
 }
+	
 </style>
     
 <div id="toolkit-ani">
