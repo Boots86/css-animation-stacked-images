@@ -25,10 +25,38 @@ Toolkit Animation
 }
 #toolkit-ani:hover  .mid-img{
 	overflow: hidden;
-	transform: translatey(0px);
 	animation: float 2s ease-in-out infinite;
 }
-	
+
+    
+/*--------------
+Bulb Animation
+---------------*/
+#bulb-ani {
+    position: relative;
+    margin: 0;
+}
+.bulb-btm-img, .bulb-top-img {
+    position: absolute;
+    left: 35%;
+}
+@keyframes roll_piece {
+	0% {
+		transform: translatey(0px);
+	}
+    40% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: rotate(-30deg) translateY(13px) translateX(-2px);
+	}
+}
+#bulb-ani:hover  .bulb-top-img{
+	overflow: hidden;
+	animation: roll_piece 2.5s ease-out;
+}
+    
 </style>
     
 <div id="toolkit-ani">
@@ -36,6 +64,15 @@ Toolkit Animation
 	<img class="back-img" src="assets/images/toolkit-back.png" width="100px">
 	<img class="mid-img" src="assets/images/toolkit-middle.png" width="100px">
 	<img class="front-img" src="assets/images/toolkit-front.png" width="100px">
+	</a>
+</div>
+    
+<br><br><br><br><br><br><br>
+   
+<div id="bulb-ani">
+	<a href="#">
+	<img class="bulb-btm-img" src="images/innov_challenge_bottom.png" width="100px">
+	<img class="bulb-top-img" src="images/innov_challenge_top.png" width="100px">
 	</a>
 </div>
 </html>
