@@ -1,17 +1,103 @@
 <html>
 
 <style>
+    #btn-container{
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+    }
+    #toolkit-ani, #bulb-ani, #bee-notified, #sbulb-wrapper, #rocket-wrapper{
+        position: relative;
+        padding: 20px;
+        margin: 60px;
+    }
 /*--------------
 Toolkit Animation
 ---------------*/
-#toolkit-ani {
-    position: relative;
-    margin: 0;
-}
 .back-img, .mid-img, .front-img {
     position: absolute;
-    left: 35%;
 }
+#toolkit-ani:hover  .mid-img{
+	overflow: hidden;
+	animation: float 2s ease-in-out infinite;
+}    
+/*--------------
+Bulb Animation
+---------------*/
+.bulb-btm-img, .bulb-top-img {
+    position: absolute;
+}
+
+#bulb-ani:hover  .bulb-top-img{
+	overflow: hidden;
+	animation: roll_piece 2.5s ease-out;
+}
+/*--------------
+Bee notified with animation
+---------------*/
+.bee-btn{
+    position: absolute;
+    overflow: hidden;
+        transform: translatey(0px);
+        animation: float 3.5s ease-in-out infinite;
+}
+/*--------------
+Bulb Notification Animation
+---------------*/
+#sbulb-challenge-ani {
+    position: relative;
+    }
+.sbulb-btm-img, .sbulb-tr-img, .sbulb-tl-img {
+    position: absolute;
+ 
+    opacity: 0.9;
+    }
+#sbulb-challenge-ani:hover  .sbulb-tl-img{
+	overflow: hidden;
+	        animation: open_left .75s linear 1 normal forwards;
+}
+#sbulb-challenge-ani:hover  .sbulb-tr-img{
+	overflow: hidden;
+	        animation: open_right .75s linear 1 normal forwards;
+}
+#sbulb-challenge-ani{
+    animation: twitch 3s infinite ease-in-out;
+}
+#sbulb-challenge-ani:hover{
+    animation: step-end;
+}
+
+/*--------------
+Rocket Notification Animation
+---------------*/
+.rocket-back, .rocket-wait, #rocket-anim {
+    position: absolute;
+    top:-0%;
+    left:0%;
+    }
+    
+#rocket-msg:hover .text-bubble{
+    visibility: visible !important;
+    } 
+#rocket-msg:hover #rocket-fly{
+  width: 150px;
+  height: 150px;
+  background-image : url(images/experiment-animation-strip.png);
+  animation: moveX 1.25s steps(10) 1 normal forwards;
+}
+#rocket-msg:hover .rocket-wait,#rocket-msg:hover .rocket-back{
+    visibility: hidden;
+}
+.rocket-wait{
+    animation: waiting-twitch .25s infinite ease-in-out;
+}
+@keyframes moveX{
+  from{background-position-x:0px;}
+  to{background-position-x:-1500px;}
+}
+
 @keyframes float {
 	0% {
 		transform: translatey(0px);
@@ -23,22 +109,59 @@ Toolkit Animation
 		transform: translatey(0px);
 	}
 }
-#toolkit-ani:hover  .mid-img{
-	overflow: hidden;
-	animation: float 2s ease-in-out infinite;
+@keyframes open_left {
+        0% {
+                    transform: translatey(0px);
+        }
+        100% {
+                    transform: rotate(-45deg) translateY(1px) translateX(4px);
+        }
+    }
+@keyframes open_right {
+        0% {
+                    transform: translatey(0px);
+        }
+        100% {
+                    transform: rotate(45deg) translateY(1px) translateX(-4px);
+        }
+    }
+@keyframes twitch {
+    0%{
+                transform: rotate(0deg) translateX(0px);
+    }
+    10%{
+                transform: rotate(10deg) translateX(15px) translateY(-10px);
+    }
+    15%{
+                transform: rotate(0deg) translateX(0px);
+    }
+    20%{
+                transform: rotate(-10deg) translateX(-18px) translateY(7px);
+    }
+    25%{
+                transform: rotate(0deg) translateX(0px);
+    }
+    30% {
+                transform: rotate(0deg) translateX(0px);
+    }
+    80% {
+                transform: rotate(0deg) translateX(0px);
+    }
+    100% {
+                transform: rotate(0deg) translateX(0px);
+    }
 }
-
-    
-/*--------------
-Bulb Animation
----------------*/
-#bulb-ani {
-    position: relative;
-    margin: 0;
-}
-.bulb-btm-img, .bulb-top-img {
-    position: absolute;
-    left: 35%;
+@keyframes text-fade-in{
+    0%{
+        opacity: 0;transform: scale(0.2) translateY(400px);           
+    }
+    80%{
+        opacity: 0.9;transform: scale(0.2) translateY(0) ;
+    }
+   
+    100%{
+        opacity: 1;           
+    }
 }
 @keyframes roll_piece {
 	0% {
@@ -52,27 +175,83 @@ Bulb Animation
 		transform: rotate(-30deg) translateY(13px) translateX(-2px);
 	}
 }
-#bulb-ani:hover  .bulb-top-img{
-	overflow: hidden;
-	animation: roll_piece 2.5s ease-out;
+    @keyframes float {
+0% {
+            transform: translatey(0px);
 }
-    
+50% {
+            transform: translatey(-10px);
+}
+100% {
+            transform: translatey(0px);
+}
+}
+@keyframes waiting-twitch{
+    0%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    25%{
+        transform: rotate(1deg) translateX(1px);
+    }
+    50%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    75%{
+        transform: rotate(-1deg) translateX(-1px);
+    }
+    100%{
+        transform: rotate(0deg) translateX(0px);
+    }
+}
 </style>
-    
-<div id="toolkit-ani">
-	<a href="#">
-	<img class="back-img" src="images/toolkit-back.png" width="100px">
-	<img class="mid-img" src="images/toolkit-middle.png" width="100px">
-	<img class="front-img" src="images/toolkit-front.png" width="100px">
-	</a>
-</div>
-    
-<br><br><br><br><br><br><br>
-   
-<div id="bulb-ani">
-	<a href="#">
-	<img class="bulb-btm-img" src="images/innov_challenge_bottom.png" width="100px">
-	<img class="bulb-top-img" src="images/innov_challenge_top.png" width="100px">
-	</a>
-</div>
+<body>   
+    <h1>Animated Buttons Sprites/Stacked Images - Pure CSS</h1>
+    <span>These were originally designed to reveal a pop-up message, I am just showing the buttons here</span>
+    <br><hr>
+    <div id="btn-container">
+        <div id="toolkit-ani">
+            <a href="#">
+            <img class="back-img" src="images/toolkit-back.png" width="100px">
+            <img class="mid-img" src="images/toolkit-middle.png" width="100px">
+            <img class="front-img" src="images/toolkit-front.png" width="100px">
+            </a>
+        </div>
+
+        <div id="bulb-ani">
+            <a href="#">
+            <img class="bulb-btm-img" src="images/innov_challenge_bottom.png" width="100px">
+            <img class="bulb-top-img" src="images/innov_challenge_top.png" width="100px">
+            </a>
+        </div>
+    <!--Notifications Steel Bulb - Notifications... Update Link Here (href="URL")-->
+        <div id="sbulb-wrapper">
+            <div id="sbchallenge-msg">
+                <div id="sbulb-challenge-ani">
+                    <a href="#">
+                    <img class="sbulb-btm-img" src="images/innov_challenge_btm.png" width="100px">
+                    <img class="sbulb-tl-img" src="images/innov_challenge_tl.png" width="100px">
+                    <img class="sbulb-tr-img" src="images/innov_challenge_tr.png" width="100px">
+                    </a>
+                </div>
+            </div>
+        </div>
+    <!--Bee Mascot (Buzzby) - Notifications... Update Link Here (href="URL")-->
+        <div id="bee-notified" class="bee-tooltips">
+            <div class="bee-alert bee-tooltips">
+                <a class="bee-btn" href="#"><img src="images/bee-mascot.png" height="100px"></a>
+            </div>
+        </div>
+        <div id="rocket-wrapper">
+        <div id="rocket-msg">
+            <div id="rocket-anim">
+                <a href="#">
+                <img class="rocket-back" src="images/anim-rocket-bkgrnd.png" width="150px">
+                <img class="rocket-wait" src="images/anim-rocket.png" width="150px">
+                <div id="rocket-fly"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+</body> 
 </html>
